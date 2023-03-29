@@ -37,7 +37,6 @@ object fudian extends SbtModule with ScalaModule with ScalafmtModule {
 
   override def ivyDeps = super.ivyDeps() ++ Agg(
     getVersion("chisel3"),
-    getVersion("chiseltest")
   )
 
   object tests extends Tests {
