@@ -1,8 +1,9 @@
 package fudian
 
 import chisel3._
-import chisel3.stage.{ChiselGeneratorAnnotation, ChiselStage}
+import chisel3.stage.{ChiselStage,ChiselGeneratorAnnotation}
 import chisel3.util._
+
 
 // Cascade FMA (a * b + c)
 class FCMA(val expWidth: Int, val precision: Int) extends Module {
@@ -33,10 +34,8 @@ class FCMA(val expWidth: Int, val precision: Int) extends Module {
 }
 
 object FCMA extends App {
-  override def main(args: Array[String]): Unit = {
-    (new ChiselStage).execute(args, Seq(
+     (new ChiselStage).execute(args, Seq(
       ChiselGeneratorAnnotation(() => new FCMA(11, 53))
     ))
-  }
 }
 
